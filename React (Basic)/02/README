@@ -1,0 +1,61 @@
+# React: Sorting Articles
+
+## Descrição
+
+Aplicação de listagem e ordenação de artigos desenvolvida em React. O usuário pode ordenar os artigos por número de upvotes ou por data de publicação.
+
+## Requisitos
+
+- *Node.js 8 LTS ou superior*
+- [Download & Install Node.JS](https://nodejs.org/)
+
+## Instalação
+
+bash
+npm install
+
+
+## Como executar
+
+bash
+npm start
+
+
+## Como testar
+
+bash
+npm test
+
+
+## Funcionalidades
+
+- Exibe artigos em uma tabela ao iniciar a aplicação
+- Por padrão, os artigos são ordenados por *upvotes em ordem decrescente*
+- Botão *Most Upvoted*: reordena os artigos por número de upvotes (decrescente)
+- Botão *Most Recent*: reordena os artigos por data de publicação (decrescente)
+
+## Estrutura dos Dados
+
+Cada artigo é um objeto com as seguintes propriedades:
+
+|Propriedade|Tipo  |Descrição                               |
+|-----------|------|----------------------------------------|
+|title    |string|Título do artigo                        |
+|upvotes  |number|Número de upvotes do artigo             |
+|date     |string|Data de publicação no formato YYYY-MM-DD|
+
+## Arquivos Principais
+
+- src/App.js — Componente principal com lógica de ordenação
+- src/components/Articles.js — Componente de tabela de artigos
+
+## Atributos de Teste (data-testid)
+
+|Elemento                     |data-testid        |
+|-----------------------------|-------------------|
+|Botão Most Upvoted           |most-upvoted-link|
+|Botão Most Recent            |most-recent-link |
+|Linha de cada artigo (<tr>)|article          |
+|Título do artigo (<td>)    |article-title    |
+|Upvotes do artigo (<td>)   |article-upvotes  |
+|Data do artigo (<td>)      |article-date     |
