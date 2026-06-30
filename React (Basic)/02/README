@@ -1,61 +1,52 @@
 # React: Sorting Articles
 
-## Descrição
+## Description
+Article listing and sorting application built with React. The user can sort the articles by number of upvotes or by publication date.
 
-Aplicação de listagem e ordenação de artigos desenvolvida em React. O usuário pode ordenar os artigos por número de upvotes ou por data de publicação.
-
-## Requisitos
-
-- *Node.js 8 LTS ou superior*
+## Requirements
+- *Node.js 8 LTS or higher*
 - [Download & Install Node.JS](https://nodejs.org/)
 
-## Instalação
-
-bash
+## Installation
+```bash
 npm install
+```
 
-
-## Como executar
-
-bash
+## How to Run
+```bash
 npm start
+```
 
-
-## Como testar
-
-bash
+## How to Test
+```bash
 npm test
+```
 
+## Features
+- Displays articles in a table when the application starts
+- By default, articles are sorted by *upvotes in descending order*
+- *Most Upvoted* button: re-sorts the articles by number of upvotes (descending)
+- *Most Recent* button: re-sorts the articles by publication date (descending)
 
-## Funcionalidades
+## Data Structure
+Each article is an object with the following properties:
 
-- Exibe artigos em uma tabela ao iniciar a aplicação
-- Por padrão, os artigos são ordenados por *upvotes em ordem decrescente*
-- Botão *Most Upvoted*: reordena os artigos por número de upvotes (decrescente)
-- Botão *Most Recent*: reordena os artigos por data de publicação (decrescente)
+| Property | Type   | Description                              |
+|----------|--------|-------------------------------------------|
+| title    | string | Article title                             |
+| upvotes  | number | Number of upvotes the article has         |
+| date     | string | Publication date in YYYY-MM-DD format     |
 
-## Estrutura dos Dados
+## Main Files
+- `src/App.js` — Main component with sorting logic
+- `src/components/Articles.js` — Article table component
 
-Cada artigo é um objeto com as seguintes propriedades:
-
-|Propriedade|Tipo  |Descrição                               |
-|-----------|------|----------------------------------------|
-|title    |string|Título do artigo                        |
-|upvotes  |number|Número de upvotes do artigo             |
-|date     |string|Data de publicação no formato YYYY-MM-DD|
-
-## Arquivos Principais
-
-- src/App.js — Componente principal com lógica de ordenação
-- src/components/Articles.js — Componente de tabela de artigos
-
-## Atributos de Teste (data-testid)
-
-|Elemento                     |data-testid        |
-|-----------------------------|-------------------|
-|Botão Most Upvoted           |most-upvoted-link|
-|Botão Most Recent            |most-recent-link |
-|Linha de cada artigo (<tr>)|article          |
-|Título do artigo (<td>)    |article-title    |
-|Upvotes do artigo (<td>)   |article-upvotes  |
-|Data do artigo (<td>)      |article-date     |
+## Test Attributes (data-testid)
+| Element                        | data-testid        |
+|---------------------------------|---------------------|
+| Most Upvoted button             | `most-upvoted-link` |
+| Most Recent button              | `most-recent-link`  |
+| Each article row (`<tr>`)       | `article`           |
+| Article title (`<td>`)          | `article-title`     |
+| Article upvotes (`<td>`)        | `article-upvotes`   |
+| Article date (`<td>`)           | `article-date`      |
