@@ -1,58 +1,49 @@
 # React: Slideshow App
 
-## Descrição
+## Description
+Basic slideshow application built with React, where the user can navigate between slides using control buttons.
 
-Aplicação de slideshow básica desenvolvida em React, onde o usuário pode navegar entre slides utilizando botões de controle.
-
-## Requisitos
-
-- *Node.js 18 LTS ou superior*
+## Requirements
+- *Node.js 18 LTS or higher*
 - [Download & Install Node.JS](https://nodejs.org/)
 
-## Instalação
-
-bash
+## Installation
+```bash
 npm install
+```
 
-
-## Como executar
-
-bash
+## How to Run
+```bash
 npm start
+```
 
-
-## Como testar
-
-bash
+## How to Test
+```bash
 npm test
+```
 
+## Features
+- Displays the first slide when the application starts
+- *Next* button: advances to the next slide (disabled on the last slide)
+- *Prev* button: goes back to the previous slide (disabled on the first slide)
+- *Restart* button: returns to the first slide (disabled when already on the first slide)
 
-## Funcionalidades
+## Component Structure
+The `Slides` component receives an array of slides as a prop. Each slide is an object with the following properties:
 
-- Exibe o primeiro slide ao iniciar a aplicação
-- Botão *Next*: avança para o próximo slide (desabilitado no último slide)
-- Botão *Prev*: volta para o slide anterior (desabilitado no primeiro slide)
-- Botão *Restart*: retorna ao primeiro slide (desabilitado quando já está no primeiro slide)
+| Property | Type   | Description       |
+|----------|--------|--------------------|
+| title    | string | Slide title        |
+| text     | string | Slide content       |
 
-## Estrutura do Componente
+## Test Attributes (data-testid)
+| Element          | data-testid      |
+|------------------|------------------|
+| Restart button   | button-restart   |
+| Prev button      | button-prev      |
+| Next button      | button-next      |
+| Slide title      | title            |
+| Slide text       | text             |
 
-O componente Slides recebe um array de slides como prop. Cada slide é um objeto com as propriedades:
-
-|Propriedade|Tipo  |Descrição        |
-|-----------|------|-----------------|
-|title    |string|Título do slide  |
-|text     |string|Conteúdo do slide|
-
-## Atributos de Teste (data-testid)
-
-|Elemento       |data-testid     |
-|---------------|----------------|
-|Botão Restart  |button-restart|
-|Botão Prev     |button-prev   |
-|Botão Next     |button-next   |
-|Título do slide|title         |
-|Texto do slide |text          |
-
-## Arquivo Principal
-
-src/components/Slides.js
+## Main File
+`src/components/Slides.js`
