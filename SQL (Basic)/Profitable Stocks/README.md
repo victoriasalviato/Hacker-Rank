@@ -1,27 +1,25 @@
 # Profitable Stocks
 
-## Descrição
+## Description
+SQL query to identify profitable stocks, returning the `stock_code` of every stock whose predicted price for tomorrow is **strictly greater** than its current price. The result is sorted in ascending order.
 
-Query SQL para identificar ações lucrativas, retornando os `stock_code` de todas as ações cujo preço previsto para amanhã é **estritamente maior** que o preço atual. O resultado é ordenado em ordem ascendente.
-
-## Tabelas
+## Tables
 
 ### `price_today`
-| Coluna     | Tipo    | Descrição                              |
-|------------|---------|----------------------------------------|
-| stock_code | STRING  | Código da ação (chave primária)        |
-| price      | INTEGER | Preço atual da ação                    |
+| Column     | Type    | Description                       |
+|------------|---------|-------------------------------------|
+| stock_code | STRING  | Stock code (primary key)            |
+| price      | INTEGER | Current stock price                 |
 
 ### `price_tomorrow`
-| Coluna     | Tipo    | Descrição                              |
-|------------|---------|----------------------------------------|
-| stock_code | STRING  | Código da ação (chave primária)        |
-| price      | INTEGER | Preço previsto da ação para amanhã     |
+| Column     | Type    | Description                       |
+|------------|---------|-------------------------------------|
+| stock_code | STRING  | Stock code (primary key)            |
+| price      | INTEGER | Predicted stock price for tomorrow  |
 
-> **Nota:** Ambas as tabelas contêm todas as ações listadas na bolsa de valores.
+> **Note:** Both tables contain every stock listed on the stock exchange.
 
 ## Query
-
 ```sql
 SELECT pt.stock_code
 FROM price_today pt
@@ -30,21 +28,19 @@ WHERE pm.price > pt.price
 ORDER BY pt.stock_code ASC;
 ```
 
-## Como funciona
+## How It Works
+1. Performs a `JOIN` between the two tables using `stock_code`
+2. Filters only the stocks where tomorrow's price is **strictly greater** than today's price
+3. Sorts the result in **ascending order** by `stock_code`
 
-1. Faz um `JOIN` entre as duas tabelas usando `stock_code`
-2. Filtra apenas as ações onde o preço de amanhã é **estritamente maior** que o preço de hoje
-3. Ordena o resultado em **ordem ascendente** por `stock_code`
+## Example
+| stock_code | Today | Tomorrow | Profitable? |
+|------------|-------|----------|--------------|
+| TITAN      | 560   | 750      | ✅ Yes        |
+| MRF        | 950   | 800      | ❌ No         |
+| GOOGL      | 200   | 210      | ✅ Yes        |
 
-## Exemplo
-
-| stock_code | Hoje | Amanhã | Lucrativa? |
-|------------|------|--------|------------|
-| TITAN      | 560  | 750    | ✅ Sim     |
-| MRF        | 950  | 800    | ❌ Não     |
-| GOOGL      | 200  | 210    | ✅ Sim     |
-
-**Saída esperada:**
+**Expected output:**
 ```
 GOOGL
 TITAN
